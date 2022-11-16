@@ -19,10 +19,10 @@ import com.valdir.helpdesk.repositories.PessoaRepository;
 public class DBService {
 	
 	@Autowired
-	private PessoaRepository pessoaRepository;
-	@Autowired 
 	private ChamadoRepository chamadoRepository;
 	@Autowired
+	private PessoaRepository pessoaRepository;
+	@Autowired 
 	private BCryptPasswordEncoder encoder;
 	
 	public void instanciaDB() {

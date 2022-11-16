@@ -34,18 +34,17 @@ public class ChamadoDTO implements Serializable {
 		super();
 	}
 	public ChamadoDTO(Chamado obj) {
-		super();
 		this.id = obj.getId();
 		this.dataAbertura = obj.getDataAbertura();
-		this.dataFechamento = obj.getDataAbertura();
+		this.dataFechamento = obj.getDataFechamento();
 		this.prioridade = obj.getPrioridade().getCodigo();
 		this.status = obj.getStatus().getCodigo();
 		this.titulo = obj.getTitulo();
 		this.observacoes = obj.getObservacoes();
 		this.tecnico = obj.getTecnico().getId();
 		this.cliente = obj.getCliente().getId();
-		this.nomeTecnico = obj.getTecnico().getNome();
 		this.nomeCliente = obj.getCliente().getNome();
+		this.nomeTecnico = obj.getTecnico().getNome();
 	}
 	public Integer getId() {
 		return id;

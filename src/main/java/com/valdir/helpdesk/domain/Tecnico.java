@@ -13,8 +13,7 @@ import com.valdir.helpdesk.domain.enums.Perfil;
 
 @Entity
 public class Tecnico extends Pessoa{
-	
- static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
  	
  	@JsonIgnore
  	@OneToMany(mappedBy = "tecnico")

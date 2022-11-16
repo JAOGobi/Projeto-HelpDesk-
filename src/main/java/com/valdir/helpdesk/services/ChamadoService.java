@@ -37,8 +37,8 @@ public class ChamadoService {
 		return repository.findAll();
 	}
 
-	public Chamado create(@Valid ChamadoDTO objDTO) {
-		return repository.save(newChamado(objDTO));
+	public Chamado create(ChamadoDTO obj) {
+		return repository.save(newChamado(obj));
 	}
 	
 	public Chamado update(Integer id, @Valid ChamadoDTO objDTO) {

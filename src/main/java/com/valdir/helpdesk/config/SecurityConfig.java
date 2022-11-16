@@ -16,7 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import com.valdir.helpdesk.security.JWTAuthenticationFilter;
 import com.valdir.helpdesk.security.JWTAuthorizationFilter;
@@ -44,18 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtUtil));
 		http.addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtUtil, userDetailsService));
 		http.authorizeRequests()
-		    .antMatchers("/login").permitAll()
 			.antMatchers(PUBLIC_MATCHERS).permitAll()
 			.anyRequest().authenticated();
 		
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
-	
-	 public void addCorsMappings(CorsRegistry registry) {
-	        registry.addMapping("/**")
-	                .allowedOrigins("http://localhost:4200")
-	                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
-	    }
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
